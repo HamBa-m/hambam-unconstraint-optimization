@@ -5,6 +5,13 @@ import numpy as np
 
 #unrestricted search with fixed step
 def usfs(f, a, b, p = 0.01, plot=False):
+    """
+    f: monovariable function
+    a : start of search interval
+    b : end of search interval
+    p : step size
+    plot : a parameter to choose either to plot or not the results
+    """
     if plot :
         X = np.linspace(a,b,1000)
         plt.plot(X, f(X))
@@ -33,6 +40,13 @@ def usfs(f, a, b, p = 0.01, plot=False):
 
 #unrestricted search with accelerated step
 def usas(f, a, b, p = 0.01, plot=False):
+    """
+    f: monovariable function
+    a : start of search interval
+    b : end of search interval
+    p : step size
+    plot : a parameter to choose either to plot or not the results
+    """
     t = perf_counter()
     it , step = a, 0
     A = []
@@ -60,6 +74,13 @@ def usas(f, a, b, p = 0.01, plot=False):
 
 #exhaustive search
 def bf(f, a, b, n = 1000, plot=False):
+    """
+    f: monovariable function
+    a : start of search interval
+    b : end of search interval
+    n : number of divisions of the interval
+    plot : a parameter to choose either to plot or not the results
+    """
     t = perf_counter()
     p = (b - a) / (n - 1)
     it = a
@@ -84,6 +105,14 @@ def bf(f, a, b, n = 1000, plot=False):
 
 #binary search
 def bs(f, a, b, e = 0.01, delta = 0.001, plot=False):
+    """
+    f: monovariable function
+    a : start of search interval
+    b : end of search interval
+    e : search precision
+    delta : a factor relied to the binary search
+    plot : a parameter to choose either to plot or not the results
+    """
     t = perf_counter()
     A = []
     mid = (a + b) / 2
@@ -111,6 +140,13 @@ def bs(f, a, b, e = 0.01, delta = 0.001, plot=False):
 
 #interval halving method
 def halv(f, a, b, e = 0.01, plot=False):
+    """
+    f: monovariable function
+    a : start of search interval
+    b : end of search interval
+    e : search precision
+    plot : a parameter to choose either to plot or not the results
+    """
     t = perf_counter()
     A = [[],[],[]]
     n = ceil((2 * log(2 * e))/ log(1 / 2)) + 1
@@ -145,6 +181,13 @@ def halv(f, a, b, e = 0.01, plot=False):
 
 #fibonacci method
 def fibo(f, a, b, n = 20, plot=False):
+    """
+    f: monovariable function
+    a : start of search interval
+    b : end of search interval
+    n : number of iterations (deepth)
+    plot : a parameter to choose either to plot or not the results
+    """
     A = [[],[]]
     if plot :
         X = np.linspace(a,b,1000)
@@ -189,6 +232,13 @@ def fibo(f, a, b, n = 20, plot=False):
 
 #golden ratio method
 def golden(f, a, b, e = 0.01, plot=False):
+    """
+    f: monovariable function
+    a : start of search interval
+    b : end of search interval
+    e : search precision
+    plot : a parameter to choose either to plot or not the results
+    """
     A = [[],[]]
     if plot and len(A[0]) < 10 :
         X = np.linspace(a,b,1000)
