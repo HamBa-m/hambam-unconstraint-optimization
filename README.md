@@ -1,6 +1,6 @@
 # **Python unconstraint optimization package :**
 
-This package contains the implementation of all the introduced algorithms in the course of unconstraint optimization for the `1^{st}` year AI engineering student at UM5-ENSIAS, with in addition, the possibility to plot the results of each optimization.
+This package contains the implementation of all the introduced algorithms in the course of unconstraint optimization for the ``1^{st}`` year AI engineering student at UM5-ENSIAS, with in addition, the possibility to plot the results of each optimization.
 
 This package requires the following Python 3 libraries :
 - numpy
