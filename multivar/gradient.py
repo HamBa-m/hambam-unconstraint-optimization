@@ -8,6 +8,14 @@ from time import perf_counter
 
 #returns the minimum of a multivariable function using gradient descent
 def gradient_descent(f, xk, delta = 0.01, plot=False, F = None, axlim = 10):
+    """
+    f: multivariable function with 1 array as parameter
+    xk : a vector to start descent
+    delta : precision of search
+    plot : option to plot the results or not
+    F : the function f expressed with 2 arrays in argument for ploting issues. issued only if plot == True
+    axlim : limit of the plot 3 axis (x,y,z)
+    """
     if plot : ax = plt.axes(projection='3d')
     A = []
     t = perf_counter()
@@ -42,6 +50,13 @@ def gradient_descent(f, xk, delta = 0.01, plot=False, F = None, axlim = 10):
 
 #returns the minimum of a multivariable function using conjugate gradient
 def conjugate_gradient(f, x, plot=False, F = None,axlim = 10):
+    """
+    f: multivariable function with 1 array as parameter
+    x : a vector to start descent
+    plot : option to plot the results or not
+    F : the function f expressed with 2 arrays in argument for ploting issues. issued only if plot == True
+    axlim : limit of the plot 3 axis (x,y,z)
+    """
     if plot : ax = plt.axes(projection='3d')
     A = []
     t = perf_counter()
@@ -80,6 +95,14 @@ def is_pos_def(f, x):
 
 #returns the minimum of a multivariable function using Newton descent
 def newton_descent(f, x, delta = 0.01, plot=False, F = None, axlim = 10):
+        """
+    f: multivariable function with 1 array as parameter
+    xk : a vector to start descent
+    delta : precision of search
+    plot : option to plot the results or not
+    F : the function f expressed with 2 arrays in argument for ploting issues. issued only if plot == True
+    axlim : limit of the plot axis (x,y,z)
+    """
     d = -la.inv(nd.Hessian(f)(x))@nd.Gradient(f)(x)
     m = nd.Hessian(f)(x)
     if la.det(m) == 0:
